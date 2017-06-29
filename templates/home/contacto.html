@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {{ contacto | default:"No hay nada" | upper }}
+    <br>
+    <ul>
+        {% for direccion in direcciones%}
+            <li>{{ direccion }}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <ul>
+        {% for admin in admins %}
+            <li>
+                <span>Nombre completo: {{ admin.nombre }} {{ admin.apellidos }}</span>
+                <span>Email: {{ admin.email}}</span>
+                {% if admin.encargado %}
+                    <span>Encargado</span>
+                {% else %}
+                    <span>Supervisor</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+
+    </ul>
+</body>
+</html>
